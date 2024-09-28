@@ -1116,8 +1116,7 @@ const membershipCardPaymentVerification = async (req, res) => {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature, amount, name, email, mobile } = req.body;
 
     var {
-      validatePaymentVerification,
-      validateWebhookSignature,
+      validatePaymentVerification      
     } = require("./node_modules/razorpay/dist/utils/razorpay-utils");
 
     if (
@@ -1208,7 +1207,6 @@ const eventpaymentVerification = async (req, res) => {
 
     var {
       validatePaymentVerification,
-      validateWebhookSignature,
     } = require("./node_modules/razorpay/dist/utils/razorpay-utils");
 
     if (

@@ -735,7 +735,8 @@ const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
 
 
 app.use(cors({
-  origin: `${BASE_URL}`,
+  // origin: `${BASE_URL}`,
+  origin: '*',
   methods: "GET,POST,PUT,DELETE",
 
 }));

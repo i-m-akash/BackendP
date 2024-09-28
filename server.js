@@ -1165,7 +1165,9 @@ const membershipCardPaymentVerification = async (req, res) => {
 
         try {
           await sendEmail(subject, message, send_to, sent_from, reply_to, pdfPath);
-          fs.unlinkSync(pdfPath);
+           if (fs.existsSync(pdfPath)) {
+            fs.unlinkSync(pdfPath);
+          }
           return res.status(200).json({
             success: true,
             message: "Payment verified and registration saved. A confirmation email has been sent.",
@@ -1258,7 +1260,9 @@ const eventpaymentVerification = async (req, res) => {
 
         try {
           await sendEmail(subject, message, send_to, sent_from, reply_to, pdfPath);
-          fs.unlinkSync(pdfPath);
+           if (fs.existsSync(pdfPath)) {
+            fs.unlinkSync(pdfPath);
+          }
           return res.status(200).json({
             success: true,
             message: "Payment verified and registration saved. A confirmation email has been sent.",

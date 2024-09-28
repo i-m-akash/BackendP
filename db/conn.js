@@ -8,7 +8,7 @@ if (!mongoURI) {
 }
 
 mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
+  // useNewUrlParser: true,
  
 })
 .then(() => {

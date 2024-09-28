@@ -1124,7 +1124,7 @@ const membershipCardPaymentVerification = async (req, res) => {
       validatePaymentVerification(
         { order_id: razorpay_order_id, payment_id: razorpay_payment_id },
         razorpay_signature,
-        process.env.RAZORPAY_API_SECRET
+        process.env.RAZORPAY_WEBHOOK_SECRET
       )) {
       try {
         // Save registration with payment details

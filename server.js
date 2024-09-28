@@ -729,7 +729,6 @@ const BasicRegistration = require("./model/basicRegistration");
 const MembershipCard = require("./model/membershipCard");
 const fs = require('fs');
 const PDFDocument = require('pdfkit');
-const { default: webhooks } = require('razorpay/dist/types/webhooks');
 
 const PORT = process.env.PORT || 8080;
 const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';

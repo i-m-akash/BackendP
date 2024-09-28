@@ -735,8 +735,7 @@ const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
 
 
 app.use(cors({
-  // origin: `${BASE_URL}`,
-  origin: '*',
+  origin: `${BASE_URL}`,
   methods: "GET,POST,PUT,DELETE",
 
 }));
@@ -1125,7 +1124,7 @@ const membershipCardPaymentVerification = async (req, res) => {
       validatePaymentVerification(
         { order_id: razorpay_order_id, payment_id: razorpay_payment_id },
         razorpay_signature,
-        process.env.RAZORPAY_WEBHOOK_SECRET
+        process.env.RAZORPAY_API_SECRET
       )) {
       try {
         // Save registration with payment details

@@ -1357,9 +1357,9 @@ app.post('/user/member-card', async (req, res) => {
 
 
 app.post('/registerevent', async (req, res) => {
-  const { eventName, teamLeaderName, teamLeaderMobileNo, teamLeaderEmail, teamLeaderCollege, teamSize, teamLeaderGender, fees } = req.body;
+  const {mainevent, eventName, teamLeaderName, teamLeaderMobileNo, teamLeaderEmail, teamLeaderCollege, teamSize, teamLeaderGender, fees } = req.body;
 
-  if (!eventName || !teamLeaderName || !teamLeaderMobileNo || !teamLeaderEmail || !teamLeaderCollege || !fees || teamSize === undefined) {
+  if (!mainevent || !eventName || !teamLeaderName || !teamLeaderMobileNo || !teamLeaderEmail || !teamLeaderCollege || !fees || teamSize === undefined) {
     return res.status(400).json({ error: 'All required fields must be provided.' });
   }
 
@@ -1376,6 +1376,7 @@ app.post('/registerevent', async (req, res) => {
 
   try {
     const registration = new EventRegistration({
+      mainevent,
       eventName,
       teamLeaderName,
       teamLeaderMobileNo,

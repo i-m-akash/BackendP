@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const registrationSchema = new mongoose.Schema({
+   mainevent:{ type: String, required: true },
   eventName: { type: String, required: true },
   teamLeaderName: { type: String, required: true },
   teamLeaderMobileNo: { type: String, required: true },

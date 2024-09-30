@@ -1001,7 +1001,7 @@ const webhook = async (req, res) => {
 const checkout = async (req, res) => {
   try {
     const options = {
-      amount: Number(req.body.amount * 100), // Convert amount to paisa (smallest unit for INR)
+      amount: Math.round(Number(req.body.amount) * 100), // Convert amount to paisa (smallest unit for INR)
       currency: "INR",
       receipt: `receipt_order_${Date.now()}`,
     };

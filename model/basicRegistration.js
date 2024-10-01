@@ -5,15 +5,15 @@ const basicregistrationSchema = new mongoose.Schema({
     email: { type: String, required: true },
     mobile: { type: String,  },
     amount: { type: String, required: true },
-    tickets: { type: Number, required: true },
-    order_Id: { type: String, required: true },
+    order_Id: { type: String  },
+    Paid: { type: Boolean, required:true ,default:false }, 
     payment_Id: {
         type: String,
-        required: true,
+       
     },
     signature: {
         type: String,
-        required: true,
+        
     },
 
 });

@@ -723,7 +723,7 @@ app.post('/user/registrations', async (req, res) => {
 
   try {
     const registrations = await BasicRegistration.find({ email });
-    if (!registrations) {
+    if (!registrations[0].payment_Id) {
       return res.status(404).json({ message: 'No registrations found' });
     }
 

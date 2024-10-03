@@ -690,6 +690,14 @@ app.post('/api/saveMemberOrder', async (req, res) => {
         registration.order_Id = order_id;
         await registration.save();
         console.log(registration);
+      const payment_time= new Date();
+        const order= new Order({
+          order_id,
+          email,
+          payment_time,
+          eventName:"Membership Card",
+        });
+        await order.save();
 
     res.status(200).json({ success: true, message: "Order saved successfully" });
   } catch (error) {
@@ -711,6 +719,14 @@ app.post('/api/saveBasicOrder', async (req, res) => {
         registration.order_Id = order_id;
         await registration.save();
         console.log(registration);
+    const payment_time= new Date();
+        const order= new Order({
+          order_id,
+          email,
+          payment_time,
+          eventName:"Basic Registration",
+        });
+        await order.save();
 
     res.status(200).json({ success: true, message: "Order saved successfully" });
   } catch (error) {

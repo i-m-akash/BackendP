@@ -15,7 +15,7 @@ const BasicRegistration = require("./model/basicRegistration");
 const MembershipCard = require("./model/membershipCard");
 const fs = require('fs');
 const PDFDocument = require('pdfkit');
-
+const Order =require('./model/orderModel');
 
 const PORT = process.env.PORT || 8080;
 const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
@@ -658,6 +658,16 @@ app.post('/api/saveEventOrder', async (req, res) => {
         registration.order_Id = order_id;
         await registration.save();
         console.log(registration);
+    
+        const payment_time= new Date();
+        const order= new Order({
+          order_id,
+          email,
+          payment_time,
+          eventName:eventName,
+        });
+        await order.save();
+
 
     res.status(200).json({ success: true, message: "Order saved successfully" });
   } catch (error) {

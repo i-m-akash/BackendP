@@ -220,7 +220,7 @@ const instance = new Razorpay({
 
 app.post("/api/saveRegistration", async (req, res) => {
   try {
-    const { name, email, mobile, fees } = req.body;
+    const { name, email, mobile,college, fees } = req.body;
     const existingMember = await BasicRegistration.findOne({ email });
 
     if (existingMember) {
@@ -231,6 +231,7 @@ app.post("/api/saveRegistration", async (req, res) => {
       name,
       email,
       mobile,
+      college,
       amount: fees,
     });
 
@@ -243,7 +244,7 @@ app.post("/api/saveRegistration", async (req, res) => {
 });
 app.post("/api/saveMemberCard", async (req, res) => {
   try {
-    const { name, email, mobile, fees } = req.body;
+    const { name, email, mobile,college, fees } = req.body;
 
     const existingMember = await MembershipCard.findOne({ email });
 
@@ -255,6 +256,7 @@ app.post("/api/saveMemberCard", async (req, res) => {
       name,
       email,
       mobile,
+      college,
       amount: fees,
     });
 
